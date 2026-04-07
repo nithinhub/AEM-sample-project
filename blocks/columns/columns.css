@@ -160,14 +160,27 @@
 
 /* ========== COMPLETE WORK HISTORY STYLING ========== */
 
-/* Work History Heading */
+/* ========== COMPLETE WORK HISTORY STYLING ========== */
+
+/* Main Heading with Gradient Animation - EFFECTS KEPT */
 #work-history {
     text-align: center;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #001f3f;
+    font-size: 2.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #00008B, #87CEEB, #00008B);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 3s ease infinite;
     margin: 4rem 0 3rem;
     position: relative;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 #work-history::after {
@@ -176,71 +189,222 @@
     bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
+    width: 100px;
     height: 4px;
-    background: linear-gradient(90deg, #87CEEB, #00008B);
+    background: linear-gradient(90deg, #87CEEB, #00008B, #87CEEB);
     border-radius: 2px;
+    animation: underlinePulse 2s ease-in-out infinite;
 }
 
-/* Work History Cards - Select paragraphs after the heading */
-#work-history ~ p {
-    background: white;
-    border-radius: 20px;
-    padding: 2rem;
-    margin: 1.5rem auto;
-    max-width: 900px;
-    box-shadow: 0 10px 30px rgba(0, 0, 139, 0.08);
-    transition: all 0.3s ease;
-    border-left: 5px solid #00008B;
+@keyframes underlinePulse {
+    0%, 100% { width: 100px; }
+    50% { width: 150px; }
+}
+
+/* ========== JOB TITLE - NO EFFECTS (Plain text) ========== */
+#work-history + p {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    margin: 2rem auto 0.5rem;
+    display: inline-block;
+    left: 50%;
     position: relative;
-    cursor: pointer;
+    transform: translateX(-50%);
+    background: none;
+    -webkit-text-fill-color: #333;
 }
 
-#work-history ~ p:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 139, 0.15);
+/* Remove decorative emojis from job title */
+#work-history + p::before,
+#work-history + p::after {
+    content: none;
 }
 
-/* Animated shimmer effect */
-#work-history ~ p::after {
+/* ========== COMPANY BADGE - NO EFFECTS (Plain text) ========== */
+#work-history + p + p {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #555;
+    text-align: center;
+    background: #f0f0f0;
+    padding: 0.4rem 1.2rem;
+    border-radius: 30px;
+    display: inline-block;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+    margin: 0 auto 1.5rem;
+}
+
+/* Remove emoji from company badge */
+#work-history + p + p::before {
+    content: none;
+}
+
+/* Style company name (bold but plain) */
+#work-history + p + p strong {
+    color: #444;
+    font-weight: 600;
+}
+
+/* Style date part */
+#work-history + p + p em,
+#work-history + p + p strong em {
+    color: #888;
+    font-style: normal;
+    font-weight: 400;
+}
+
+/* ========== MODERN CARD DESIGN - EFFECTS KEPT ========== */
+#work-history ~ ul {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 24px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 139, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(135, 206, 235, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+#work-history ~ ul:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 25px 45px rgba(0, 0, 139, 0.2);
+    border-color: rgba(0, 0, 139, 0.2);
+}
+
+/* Sky blue accent bar - KEPT */
+#work-history ~ ul::before {
     content: '';
     position: absolute;
+    left: 0;
     top: 0;
-    left: -100%;
-    width: 100%;
+    width: 5px;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(135, 206, 235, 0.3), transparent);
-    transition: left 0.5s ease;
-    pointer-events: none;
+    background: linear-gradient(180deg, #87CEEB, #00008B);
 }
 
-#work-history ~ p:hover::after {
-    left: 100%;
+/* Experience Ribbon - KEPT */
+#work-history ~ ul::after {
+    content: 'Experience';
+    position: absolute;
+    top: 12px;
+    right: -30px;
+    background: linear-gradient(135deg, #00008B, #87CEEB);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.3rem 2rem;
+    transform: rotate(45deg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Style the first line (Company Name) */
-#work-history ~ p {
-    font-size: 1rem;
+/* List Items - KEPT */
+#work-history ~ ul li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+    color: #333;
+    padding-left: 1.5rem;
+    position: relative;
 }
 
-/* Add visual separation between work items */
-#work-history ~ p:not(:last-of-type) {
-    margin-bottom: 2rem;
-}
-
-/* Style for Case Studies and Contact sections (prevents them from getting card styling) */
-#work-history ~ p:nth-last-child(3),
-#work-history ~ p:nth-last-child(2),
-#work-history ~ p:nth-last-child(1) {
-    background: transparent;
-    box-shadow: none;
-    border-left: none;
-    padding: 1rem;
-    text-align: center;
-}
-
-/* Case Studies heading style */
-#work-history ~ p strong {
+#work-history ~ ul li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
     color: #00008B;
-    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Last list item - no margin */
+#work-history ~ ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 768px) {
+    #work-history {
+        font-size: 2rem;
+    }
+    
+    #work-history + p {
+        font-size: 1.1rem;
+    }
+    
+    #work-history + p + p {
+        font-size: 0.85rem;
+        padding: 0.3rem 1rem;
+    }
+    
+    #work-history ~ ul {
+        padding: 1.2rem;
+        margin: 1rem;
+    }
+    
+    #work-history ~ ul li {
+        font-size: 0.85rem;
+        padding-left: 1.2rem;
+    }
+    
+    #work-history ~ ul::after {
+        font-size: 0.6rem;
+        top: 8px;
+        right: -35px;
+        padding: 0.2rem 2rem;
+    }
+}
+
+/* ========== FADE IN ANIMATIONS - KEPT ========== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#work-history {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+#work-history + p {
+    animation: fadeInUp 0.5s ease 0.1s forwards;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+#work-history + p + p {
+    animation: fadeInUp 0.5s ease 0.2s forwards;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+#work-history ~ ul:nth-of-type(1) {
+    animation: fadeInUp 0.5s ease 0.3s forwards;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+#work-history ~ ul:nth-of-type(2) {
+    animation: fadeInUp 0.5s ease 0.4s forwards;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+#work-history ~ ul:nth-of-type(3) {
+    animation: fadeInUp 0.5s ease 0.5s forwards;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+#work-history ~ ul:nth-of-type(4) {
+    animation: fadeInUp 0.5s ease 0.6s forwards;
+    opacity: 0;
+    animation-fill-mode: forwards;
 }

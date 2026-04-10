@@ -33,136 +33,363 @@
 }
 
 /* /blocks/columns/columns.css */
-
-/* Style the columns block as stats card */
-.columns.block.columns-3-cols {
-    background-color: #87CEEB;      /* Sky blue background */
-    border: 3px solid #00008B;      /* Deep blue border */
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    margin: 2rem 0;
+/* Stats Columns Container - Same Blue Border */
+.columns.stats.block.columns-3-cols {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 20px;
 }
 
-/* Style the inner container */
-.columns.block.columns-3-cols > div {
+/* Inner wrapper for columns */
+.columns.stats.block.columns-3-cols > div {
     display: flex;
+    justify-content: center;
+    gap: 30px;
     flex-wrap: wrap;
 }
 
-/* Style each column */
-.columns.block.columns-3-cols > div > div {
+/* Individual column styling with border */
+.columns.stats.block.columns-3-cols > div > div {
     flex: 1;
-    padding: 1.5rem 1rem;
-    text-align: center;
-    border-right: 2px solid #00008B; /* Deep blue divider */
+    min-width: 180px;
+    background: white;
+    border: 2px solid #00008B;  /* Same blue color as table */
+    border-radius: 16px;
+    padding: 30px 20px;
+    text-align: center !important;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 139, 0.08);
 }
 
-/* Remove border from last column */
-.columns.block.columns-3-cols > div > div:last-child {
-    border-right: none;
+/* Hover effect for columns */
+.columns.stats.block.columns-3-cols > div > div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 139, 0.15);
+    border-color: #4169E1;  /* Lighter blue on hover */
+    background: linear-gradient(135deg, #ffffff, #f0f4ff);
 }
 
-/* Style the numbers (3+, 6, 4) */
-.columns.block.columns-3-cols > div > div p:first-child {
-    font-size: 2.5rem;
-    font-weight: bold;
+/* First line (number) styling - Centered */
+.columns.stats.block.columns-3-cols > div > div p:first-child {
+    font-size: 3rem !important;
+    font-weight: 800 !important;
+    color: #00008B !important;
+    margin: 0 0 10px 0 !important;
+    text-align: center !important;
+    line-height: 1.2;
+}
+
+/* Second line (description) styling - Centered */
+.columns.stats.block.columns-3-cols > div > div p:last-child {
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    color: #444 !important;
+    margin: 0 !important;
+    text-align: center !important;
+    line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .columns.stats.block.columns-3-cols > div {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .columns.stats.block.columns-3-cols > div > div {
+        min-width: auto;
+        padding: 25px 20px;
+    }
+    
+    .columns.stats.block.columns-3-cols > div > div p:first-child {
+        font-size: 2.5rem !important;
+    }
+    
+    .columns.stats.block.columns-3-cols > div > div p:last-child {
+        font-size: 0.9rem !important;
+    }
+}
+
+/* Animation on scroll */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.columns.stats.block.columns-3-cols > div > div {
+    animation: fadeInScale 0.5s ease forwards;
+    opacity: 0;
+}
+
+.columns.stats.block.columns-3-cols > div > div:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.columns.stats.block.columns-3-cols > div > div:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.columns.stats.block.columns-3-cols > div > div:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+/* Center the two paragraphs with em and strong tags */
+.default-content-wrapper p em strong {
+    display: block;
+    text-align: center !important;
+    font-size: 1.4rem;
+    font-weight: 800;
+    line-height: 1.6;
+    margin: 20px auto;
+}
+
+/* Target the first paragraph specifically */
+.default-content-wrapper p:first-child em strong {
     color: #00008B;
-    margin: 0;
+    text-align: center !important;
 }
 
-/* Style the labels */
-.columns.block.columns-3-cols > div > div p:last-child {
-    font-size: 0.9rem;
+/* Target the second paragraph specifically */
+.default-content-wrapper p:last-child em strong {
+    color: #4169E1;
+    text-align: center !important;
+}
+
+/* Ensure the parent paragraphs are centered */
+.default-content-wrapper p {
+    text-align: center !important;
+    margin: 25px auto;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+    .default-content-wrapper p em strong {
+        font-size: 1.1rem;
+    }
+}
+
+/* ========== EDUCATION SECTION - TABLE STYLING ========== */
+/* Simple centered version */
+.columns-wrapper {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.columns-wrapper .default-content-wrapper p {
+    text-align: center !important;
+    margin: 15px 0;
+}
+
+.columns-wrapper .default-content-wrapper p:first-child em strong {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #00008B;
+}
+
+.columns-wrapper .default-content-wrapper p:last-child em strong {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #4169E1;
+}
+
+@media (max-width: 768px) {
+    .columns-wrapper .default-content-wrapper p:first-child em strong,
+    .columns-wrapper .default-content-wrapper p:last-child em strong {
+        font-size: 1.1rem;
+    }
+}
+/* ========== EDUCATION SECTION - TABLE STYLING ========== */
+
+/* Education Main Heading */
+#education {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
     color: #001f3f;
-    margin: 0.5rem 0 0 0;
+    margin: 4rem 0 2rem;
+    position: relative;
 }
 
-/* ========== Moving Border Animation ========== */
-
-/* Top moving beam - left to right */
-.columns.block.columns-3-cols::before {
+#education::after {
     content: '';
     position: absolute;
-    top: -2px;
-    left: -2px;
-    width: 30%;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, transparent, #00008B, #00008B, transparent);
-    animation: moveLeftToRight 3s infinite ease-in-out;
-    pointer-events: none;
-    z-index: 2;
+    background: linear-gradient(90deg, #87CEEB, #00008B);
+    border-radius: 2px;
+    transition: width 0.3s ease;
 }
 
-/* Bottom moving beam - right to left */
-.columns.block.columns-3-cols::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    right: -2px;
-    width: 30%;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, #00008B, #00008B, transparent);
-    animation: moveRightToLeft 3s infinite ease-in-out;
-    pointer-events: none;
-    z-index: 2;
+#education:hover::after {
+    width: 120px;
 }
 
-/* Animation keyframes */
-@keyframes moveLeftToRight {
-    0% {
-        left: -2px;
-        width: 0%;
+/* Education Table - White Background with Border */
+#education + table {
+    background: white !important;
+    border: 2px solid #00008B !important;  /* Solid border added */
+    border-radius: 24px;
+    overflow: hidden;
+    margin: 2rem auto;
+    width: 100%;
+    max-width: 1000px;
+    box-shadow: 0 15px 35px rgba(0, 0, 139, 0.1);
+    transition: all 0.4s ease;
+    border-collapse: collapse;
+}
+
+/* Table Title (Caption) - Centered */
+#education {
+    text-align: center !important;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #00008B;
+    margin-bottom: 1rem;
+    display: block;
+    width: 100%;
+}
+
+/* Hover effect for table */
+#education + table:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 45px rgba(0, 0, 139, 0.2);
+}
+
+/* Table Header Row */
+#education + table thead tr {
+    background: linear-gradient(135deg, #00008B, #4169E1);
+}
+
+#education + table th {
+    font-size: 1.4rem !important;
+    font-weight: 800 !important;
+    color: white !important;
+    padding: 1.2rem 1rem !important;
+    text-align: center !important;
+    border: 1px solid #00008B !important;  /* Border on header cells */
+}
+
+/* Table Body Rows */
+#education + table tbody tr {
+    transition: all 0.3s ease;
+}
+
+#education + table tbody tr:hover {
+    background: linear-gradient(90deg, rgba(135, 206, 235, 0.1), rgba(0, 0, 139, 0.05));
+}
+
+/* Table Cells - Centered with Border */
+#education + table td {
+    padding: 1.2rem 1rem;
+    color: #333;
+    font-size: 1.1rem !important;
+    text-align: center !important;
+    border: 1px solid #ddd !important;  /* Light border on cells */
+    background: white !important;  /* Ensure white background */
+}
+
+/* Degree column - bold and blue */
+#education + table td:first-child {
+    font-weight: 700;
+    color: #00008B;
+    font-size: 1.1rem !important;
+    text-align: center !important;
+}
+
+/* Year column styling */
+#education + table td:nth-child(2) {
+    font-weight: 600;
+    color: #555;
+    font-size: 1.1rem !important;
+    text-align: center !important;
+}
+
+/* Institution column styling */
+#education + table td:last-child {
+    color: #444;
+    font-weight: 500;
+    font-size: 1.1rem !important;
+    text-align: center !important;
+}
+
+/* Remove duplicate borders between cells */
+#education + table {
+    border-collapse: collapse !important;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    #education {
+        font-size: 1.8rem;
+    }
+    
+    #education + table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        border-radius: 16px;
+    }
+    
+    #education + table th {
+        font-size: 1rem !important;
+        padding: 0.8rem !important;
+        text-align: center !important;
+    }
+    
+    #education + table td {
+        padding: 0.8rem;
+        font-size: 0.85rem !important;
+        text-align: center !important;
+    }
+    
+    #education + table td:first-child,
+    #education + table td:nth-child(2),
+    #education + table td:last-child {
+        font-size: 0.85rem !important;
+        text-align: center !important;
+    }
+}
+
+/* Fade-in Animation */
+@keyframes fadeInUp {
+    from {
         opacity: 0;
+        transform: translateY(30px);
     }
-    10% {
-        width: 20%;
+    to {
         opacity: 1;
-    }
-    90% {
-        width: 20%;
-        opacity: 1;
-    }
-    100% {
-        left: 100%;
-        width: 0%;
-        opacity: 0;
+        transform: translateY(0);
     }
 }
 
-@keyframes moveRightToLeft {
-    0% {
-        right: -2px;
-        width: 0%;
-        opacity: 0;
-    }
-    10% {
-        width: 20%;
-        opacity: 1;
-    }
-    90% {
-        width: 20%;
-        opacity: 1;
-    }
-    100% {
-        right: 100%;
-        width: 0%;
-        opacity: 0;
-    }
+#education {
+    animation: fadeInUp 0.5s ease forwards;
 }
 
-/* Optional: Pause animation on hover */
-.columns.block.columns-3-cols:hover::before,
-.columns.block.columns-3-cols:hover::after {
-    animation-play-state: paused;
+#education + table {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+    animation-fill-mode: forwards;
 }
-
 
 /* ========== COMPLETE WORK HISTORY STYLING ========== */
 
 /* ========== COMPLETE WORK HISTORY STYLING ========== */
 
-/* Main Heading with Gradient Animation - EFFECTS KEPT */
+/* ========== COMPLETE WORK HISTORY STYLING ========== */
+
+/* Main Heading with Gradient Animation */
 #work-history {
     text-align: center;
     font-size: 2.8rem;
@@ -201,41 +428,39 @@
     50% { width: 150px; }
 }
 
-/* ========== JOB TITLE - NO EFFECTS (Plain text) ========== */
+/* ========== JOB TITLE - LEFT ALIGNED ========== */
 #work-history + p {
     font-size: 1.3rem;
     font-weight: 600;
     color: #333;
-    text-align: center;
-    margin: 2rem auto 0.5rem;
-    display: inline-block;
-    left: 50%;
-    position: relative;
-    transform: translateX(-50%);
+    text-align: left;
+    margin: 2rem 0 0.5rem 0;
+    display: block;
+    left: 0;
+    transform: none;
     background: none;
     -webkit-text-fill-color: #333;
 }
 
-/* Remove decorative emojis from job title */
+/* Remove decorative emojis */
 #work-history + p::before,
 #work-history + p::after {
     content: none;
 }
 
-/* ========== COMPANY BADGE - NO EFFECTS (Plain text) ========== */
+/* ========== COMPANY BADGE - LEFT ALIGNED ========== */
 #work-history + p + p {
     font-size: 1rem;
     font-weight: 500;
     color: #555;
-    text-align: center;
+    text-align: left;
     background: #f0f0f0;
     padding: 0.4rem 1.2rem;
     border-radius: 30px;
     display: inline-block;
-    left: 50%;
-    position: relative;
-    transform: translateX(-50%);
-    margin: 0 auto 1.5rem;
+    left: 0;
+    transform: none;
+    margin: 0 0 1.5rem 0;
 }
 
 /* Remove emoji from company badge */
@@ -243,7 +468,7 @@
     content: none;
 }
 
-/* Style company name (bold but plain) */
+/* Style company name */
 #work-history + p + p strong {
     color: #444;
     font-weight: 600;
@@ -257,7 +482,7 @@
     font-weight: 400;
 }
 
-/* ========== MODERN CARD DESIGN - EFFECTS KEPT ========== */
+/* ========== MODERN CARD DESIGN ========== */
 #work-history ~ ul {
     background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
     border-radius: 24px;
@@ -268,6 +493,7 @@
     border: 1px solid rgba(135, 206, 235, 0.3);
     position: relative;
     overflow: hidden;
+    list-style-type: none;
 }
 
 #work-history ~ ul:hover {
@@ -276,7 +502,7 @@
     border-color: rgba(0, 0, 139, 0.2);
 }
 
-/* Sky blue accent bar - KEPT */
+/* Sky blue accent bar */
 #work-history ~ ul::before {
     content: '';
     position: absolute;
@@ -287,7 +513,7 @@
     background: linear-gradient(180deg, #87CEEB, #00008B);
 }
 
-/* Experience Ribbon - KEPT */
+/* Experience Ribbon */
 #work-history ~ ul::after {
     content: 'Experience';
     position: absolute;
@@ -302,21 +528,24 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* List Items - KEPT */
+/* ========== LIST ITEMS - NO BULLETS ========== */
 #work-history ~ ul li {
     margin-bottom: 0.75rem;
     line-height: 1.6;
     color: #333;
-    padding-left: 1.5rem;
+    padding-left: 0;  /* Remove padding */
     position: relative;
+    list-style-type: none;  /* Remove default bullet */
 }
 
+/* Remove the custom bullet (▹) */
 #work-history ~ ul li::before {
-    content: '▹';
-    position: absolute;
-    left: 0;
-    color: #00008B;
-    font-weight: bold;
+    content: none;
+}
+
+/* Optional: Add a dash or keep plain text */
+#work-history ~ ul li {
+    /* Plain text with no bullet */
 }
 
 /* Last list item - no margin */
@@ -346,7 +575,6 @@
     
     #work-history ~ ul li {
         font-size: 0.85rem;
-        padding-left: 1.2rem;
     }
     
     #work-history ~ ul::after {
@@ -357,7 +585,7 @@
     }
 }
 
-/* ========== FADE IN ANIMATIONS - KEPT ========== */
+/* ========== FADE IN ANIMATIONS ========== */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -407,4 +635,294 @@
     animation: fadeInUp 0.5s ease 0.6s forwards;
     opacity: 0;
     animation-fill-mode: forwards;
+}
+
+/* Target ONLY the About Me section by its unique heading ID */
+h1#about-me {
+    font-size: 48px;
+    font-weight: 800;
+    color: #2563eb;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: -0.5px;
+    position: relative;
+}
+
+h1#about-me::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* Target the paragraphs that come immediately after the About Me heading */
+h1#about-me + p,
+h1#about-me + p + p,
+h1#about-me + p + p + p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #1f2937;
+    margin-bottom: 20px;
+}
+
+/* First paragraph specific styling */
+h1#about-me + p {
+    font-weight: 500;
+    color: #111827;
+}
+
+/* Second paragraph specific styling */
+h1#about-me + p + p {
+    border-left: 4px solid #2563eb;
+    padding-left: 20px;
+    background: #f0f9ff;
+    padding: 15px 20px;
+    border-radius: 8px;
+}
+
+/* Certification line specific styling */
+h1#about-me + p + p + p {
+    background: linear-gradient(135deg, #dbeafe, #ede9fe);
+    padding: 12px 20px;
+    border-radius: 50px;
+    display: inline-block;
+    font-weight: 600;
+    color: #1e40af;
+    margin-top: 10px;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+    h1#about-me {
+        font-size: 36px;
+    }
+    
+    h1#about-me + p,
+    h1#about-me + p + p,
+    h1#about-me + p + p + p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+}
+
+/* ========================================
+   WHAT I'M LOOKING FOR SECTION
+   ======================================== */
+
+/* Center the entire section */
+.default-content-wrapper:has(h2#what-im-looking-for) {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* What I'm Looking For heading */
+h2#what-im-looking-for {
+    text-align: center !important;
+    color: #00008B !important;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0 auto 20px auto;
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+h2#what-im-looking-for strong {
+    color: #00008B !important;
+}
+
+/* Underline for heading */
+h2#what-im-looking-for::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #00008B, #4169E1);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* Paragraph styling */
+.default-content-wrapper:has(h2#what-im-looking-for) p {
+    text-align: center !important;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #333;
+    margin: 20px 0;
+}
+
+/* List styling - Card style */
+.default-content-wrapper:has(h2#what-im-looking-for) ul {
+    text-align: center !important;
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.default-content-wrapper:has(h2#what-im-looking-for) ul li {
+    text-align: center !important;
+    margin: 0;
+    padding: 18px 25px;
+    background: white;
+    border: 2px solid #00008B;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #444;
+    max-width: 550px;
+    width: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 139, 0.08);
+    font-weight: 500;
+}
+
+.default-content-wrapper:has(h2#what-im-looking-for) ul li:hover {
+    transform: translateY(-3px);
+    border-color: #4169E1;
+    box-shadow: 0 8px 20px rgba(0, 0, 139, 0.15);
+    background: linear-gradient(135deg, #ffffff, #f8f9ff);
+}
+
+/* ========================================
+   LET'S CONNECT SECTION
+   ======================================== */
+
+/* Let's Connect heading */
+.default-content-wrapper h2#lets-connect {
+    text-align: center !important;
+    color: #00008B !important;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 50px auto 20px auto;
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.default-content-wrapper h2#lets-connect strong {
+    color: #00008B !important;
+}
+
+/* Underline for Let's Connect */
+.default-content-wrapper h2#lets-connect::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #00008B, #4169E1);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* Contact info cards */
+.default-content-wrapper p strong {
+    color: #00008B;
+    font-weight: 700;
+}
+
+/* Style each contact line as a card */
+.default-content-wrapper:has(h2#lets-connect) p {
+    text-align: center !important;
+    background: white;
+    border: 2px solid #00008B;
+    border-radius: 12px;
+    padding: 15px 25px;
+    max-width: 400px;
+    margin: 15px auto;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.default-content-wrapper:has(h2#lets-connect) p:hover {
+    transform: translateY(-3px);
+    border-color: #4169E1;
+    box-shadow: 0 8px 20px rgba(0, 0, 139, 0.15);
+}
+
+/* Email, Phone, Website links */
+.default-content-wrapper p a {
+    color: #4169E1;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.default-content-wrapper p a:hover {
+    color: #00008B;
+    text-decoration: underline;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+    .default-content-wrapper:has(h2#what-im-looking-for) {
+        padding: 30px 15px;
+    }
+    
+    h2#what-im-looking-for,
+    .default-content-wrapper h2#lets-connect {
+        font-size: 1.8rem;
+    }
+    
+    .default-content-wrapper:has(h2#what-im-looking-for) p {
+        font-size: 1rem;
+    }
+    
+    .default-content-wrapper:has(h2#what-im-looking-for) ul li {
+        font-size: 0.9rem;
+        padding: 14px 20px;
+    }
+    
+    .default-content-wrapper:has(h2#lets-connect) p {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        max-width: 90%;
+    }
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.default-content-wrapper:has(h2#what-im-looking-for),
+.default-content-wrapper:has(h2#lets-connect) {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.default-content-wrapper:has(h2#what-im-looking-for) ul li {
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.default-content-wrapper:has(h2#what-im-looking-for) ul li:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.default-content-wrapper:has(h2#what-im-looking-for) ul li:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.default-content-wrapper:has(h2#what-im-looking-for) ul li:nth-child(3) {
+    animation-delay: 0.3s;
 }

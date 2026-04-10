@@ -1,3 +1,39 @@
+/* Center the Skills heading and make it blue */
+h2#skills {
+    text-align: center !important;
+    color: #00008B !important;  /* Dark blue matching your theme */
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 40px auto 20px auto;
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+/* Optional: Add underline effect */
+h2#skills::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #00008B, #4169E1);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* For the strong tag inside */
+h2#skills strong {
+    color: #00008B !important;  /* Keep blue color */
+    font-weight: 800;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+    h2#skills {
+        font-size: 2rem;
+    }
+}
+
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -5,25 +41,28 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 28px;
-  overflow-x: hidden;  
+  overflow-x: hidden;
+  max-width: 1200px;
+  margin: 0 auto;  /* Center the entire grid */
 }
 
 .cards > ul > li {
   border-radius: 14px;
   overflow: hidden;
-  background: #99dde2;
-  border: 1px solid #e6e6e6;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  background: white !important;  /* White background */
+  border: 2px solid #00008B !important;  /* Blue border matching your theme */
+  box-shadow: 0 6px 18px rgba(0, 0, 139, 0.08);
   transition: all 0.25s ease;
   display: flex;
   flex-direction: column;
-  
+  text-align: center;  /* Center all content inside card */
 }
 
 /* Hover effect */
 .cards > ul > li:hover {
   transform: translateY(-8px);
-  box-shadow: 0 14px 34px rgba(0,0,0,0.15);
+  box-shadow: 0 14px 34px rgba(0, 0, 139, 0.15);
+  border-color: #4169E1 !important;  /* Lighter blue on hover */
 }
 
 /* Image */
@@ -33,21 +72,55 @@
   object-fit: cover;
 }
 
-/* Card body */
+/* Card body - Centered */
 .cards .cards-card-body {
   padding: 20px;
+  text-align: center;  /* Center body content */
 }
 
-/* Title */
+/* Title - Centered */
 .cards .cards-card-body h3 {
   font-size: 20px;
   margin-bottom: 10px;
-  color: #222;
+  color: #00008B;  /* Blue color to match theme */
+  font-weight: 700;
+  text-align: center;  /* Center title */
 }
 
-/* Description */
+/* Description - Centered */
 .cards .cards-card-body p {
   font-size: 15px;
-  color: #666;
+  color: #444;
   line-height: 1.6;
+  text-align: center;  /* Center description */
+  margin: 0 auto;
+}
+
+/* Optional: Add padding to first and last elements for better spacing */
+.cards .cards-card-body h3:first-child {
+  margin-top: 0;
+}
+
+.cards .cards-card-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cards > ul {
+    gap: 20px;
+    padding: 0 15px;
+  }
+  
+  .cards .cards-card-body {
+    padding: 15px;
+  }
+  
+  .cards .cards-card-body h3 {
+    font-size: 18px;
+  }
+  
+  .cards .cards-card-body p {
+    font-size: 14px;
+  }
 }

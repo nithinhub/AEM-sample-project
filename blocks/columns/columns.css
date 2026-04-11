@@ -140,13 +140,10 @@
 }
 
 /* Center the two paragraphs with em and strong tags */
+
 .default-content-wrapper p em strong {
-    display: block;
+    color: #00008B;
     text-align: center !important;
-    font-size: 1.4rem;
-    font-weight: 800;
-    line-height: 1.6;
-    margin: 20px auto;
 }
 
 /* Target the first paragraph specifically */
@@ -439,7 +436,8 @@
     left: 0;
     transform: none;
     background: none;
-    -webkit-text-fill-color: #333;
+    -webkit-text-fill-color: #00008b;
+    
 }
 
 /* Remove decorative emojis */
@@ -449,6 +447,8 @@
 }
 
 /* ========== COMPANY BADGE - LEFT ALIGNED ========== */
+
+
 #work-history + p + p {
     font-size: 1rem;
     font-weight: 500;
@@ -470,7 +470,7 @@
 
 /* Style company name */
 #work-history + p + p strong {
-    color: #444;
+    color: #00008b;
     font-weight: 600;
 }
 
@@ -481,6 +481,7 @@
     font-style: normal;
     font-weight: 400;
 }
+
 
 /* ========== MODERN CARD DESIGN ========== */
 #work-history ~ ul {
